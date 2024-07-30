@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProductoComponent } from '../../componentes/producto/producto.component';
 import { Producto } from '../../../modelos/Producto'
 import { HeaderComponent } from '../../../compartida/header/header.component'
-import { CartServiceService } from 'src/app/dominios/service/cart-service.service';
+import { CartServiceService } from '../../../service/cart-service.service';
 
 
 @Component({
