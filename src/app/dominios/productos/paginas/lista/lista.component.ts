@@ -2,16 +2,19 @@ import { Component, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ProductoComponent } from '../../componentes/producto/producto.component';
 import { Producto } from '../../../modelos/Producto'
+import { HeaderComponent } from '../../../compartida/header/header.component'
+
 
 @Component({
   selector: 'app-lista',
   standalone: true,
-  imports: [CommonModule, ProductoComponent],
+  imports: [CommonModule, ProductoComponent, HeaderComponent],
   templateUrl: './lista.component.html',
   styleUrls: ['./lista.component.css']
 })
 export class ListaComponent {
   productos = signal<Producto[]>([]);
+  cart = signal<Producto[]>([]);
 
   constructor() {
     const initProductos: Producto[]  = [
@@ -64,6 +67,9 @@ export class ListaComponent {
   fromChild(event: string) {
     console.log('estamos en al padre');
     console.log(event);
+  }
+  addToCart(product: Producto) {
+    this.cart.update(prevState => [...prevState, product]);
   }
 
 }
