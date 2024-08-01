@@ -87,11 +87,11 @@
   <div class="pt-4 flex flex-col">
     <div class="flex justify-between items-center space-y-2" *ngFor="let producto of cart()">
       <div class="flex space-x-2 items-center">
-        <img class="w-6 h-6" [src]="producto.imagen" 
-        [alt]="producto.titulo">
-        <h3>{{ producto.titulo }}</h3>
+        <img class="w-6 h-6" [src]="producto.images" 
+        [alt]="producto.title">
+        <h3>{{ producto.title }}</h3>
       </div>
-      <p>{{ producto.precio }}</p>
+      <p>{{ producto.price }}</p>
     </div>
     <div>
       <p>Total: {{ total() }}</p>

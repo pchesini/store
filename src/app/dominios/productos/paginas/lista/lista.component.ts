@@ -4,6 +4,7 @@ import { ProductoComponent } from '../../componentes/producto/producto.component
 import { Producto } from '../../../modelos/Producto'
 import { HeaderComponent } from '../../../compartida/header/header.component'
 import { CartServiceService } from 'src/app/dominios/service/cart-service.service';
+import { ProductoService } from 'src/app/dominios/service/producto.service';
 
 
 @Component({
@@ -16,60 +17,22 @@ import { CartServiceService } from 'src/app/dominios/service/cart-service.servic
 export class ListaComponent {
   productos = signal<Producto[]>([]);
   private cartService = inject(CartServiceService);
-//  cart = signal<Producto[]>([]);
+  private productService = inject(ProductoService);
 
-  constructor() {
-    const initProductos: Producto[]  = [
-      {
-        id: Date.now(),
-        titulo: 'Pro 1',
-        precio: 100,
-        imagen: 'https://picsum.photos/640/640?r=23',
-        fechaCreacion: new Date().toISOString()
-      },
-      {
-        id: Date.now(),
-        titulo: 'Pro 2',
-        precio: 100,
-        imagen: 'https://picsum.photos/640/640?r=12',
-        fechaCreacion: new Date().toISOString()
-      },
-      {
-        id: Date.now(),
-        titulo: 'Pro 3',
-        precio: 100,
-        imagen: 'https://picsum.photos/640/640?r=1212',
-        fechaCreacion: new Date().toISOString()
-      },
-      {
-        id: Date.now(),
-        titulo: 'Pro 1',
-        precio: 100,
-        imagen: 'https://picsum.photos/640/640?r=23',
-        fechaCreacion: new Date().toISOString()
-      },
-      {
-        id: Date.now(),
-        titulo: 'Pro 2',
-        precio: 100,
-        imagen: 'https://picsum.photos/640/640?r=12',
-        fechaCreacion: new Date().toISOString()
-      },
-      {
-        id: Date.now(),
-        titulo: 'Pro 3',
-        precio: 100,
-        imagen: 'https://picsum.photos/640/640?r=1212',
-        fechaCreacion: new Date().toISOString()
-      }
-    ];
-    this.productos.set(initProductos);
-  }
 
-  fromChild(event: string) {
-    console.log('estamos en al padre');
-    console.log(event);
-  }
+ngOnInit() {
+  this.productService.getProductos()
+  .subscribe({
+    next: (productos) => {
+      this.productos.set(productos);
+    },
+    error: () => {
+      
+    }
+  })
+}
+  
+
   addToCart(producto: Producto) {
     this.cartService.addToCart(producto)
   }
