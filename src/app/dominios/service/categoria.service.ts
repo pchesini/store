@@ -8,10 +8,10 @@ import { Categoria } from '../modelos/categoria';
 export class CategoriaService {
   private http = inject(HttpClient);
 
- 
+  constructor() { }
 
   getAll() {
     return this.http.get<Categoria[]>(`https://api.escuelajs.co/api/v1/categories`);
   }
-  constructor() { }
+  
 }

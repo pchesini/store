@@ -1,13 +1,11 @@
+import { Categoria } from "./categoria";
+
 export interface Producto {
     id: number;
     title: string;
+    description: string;
     price: number;
     images: string[];
     creationAt: string;
-
-/* export interface Categoria {
-    id: number;
-    nombre: string;
-    ima: string;
-} */
+    category: Categoria;
 }

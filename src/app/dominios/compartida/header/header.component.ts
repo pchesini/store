@@ -14,7 +14,7 @@ export class HeaderComponent {
   hideSideMenu = signal(true);
   private CartServiceService = inject(CartServiceService);
   cart = this.CartServiceService.cart;
-  total = this.CartServiceService .total;
+  total = this.CartServiceService.total;
 
   toogleSideMenu() {
     this.hideSideMenu.update(prevState => !prevState);

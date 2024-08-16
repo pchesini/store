@@ -34,8 +34,8 @@ export class ListaComponent {
     this.getProductos();
   }
 
-  addToCart(product: Producto) {
-    this.cartService.addToCart(product)
+  addToCart(producto: Producto) {
+    this.cartService.addToCart(producto)
   }
   private getProductos() {
     this.productoService.getProductos(this.categoria_id)
@@ -59,7 +59,4 @@ export class ListaComponent {
       }
     })
   }
-
-  
-
 }

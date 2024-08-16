@@ -21,10 +21,10 @@ export class ProductoDetalleComponent {
     if (this.id) {
       this.productoService.getOne(this.id)
       .subscribe({
-        next: (product) => {
-          this.producto.set(product);
-          if (product.images.length > 0) {
-            this.cover.set(product.images[0])
+        next: (producto) => {
+          this.producto.set(producto);
+          if (producto.images.length > 0) {
+            this.cover.set(producto.images[0])
           }
         }
       })
@@ -37,9 +37,9 @@ export class ProductoDetalleComponent {
   }
 
   addToCart() {
-    const product = this.producto();
-    if (product) {
-      this.cartService.addToCart(product);
+    const producto = this.producto();
+    if (producto) {
+      this.cartService.addToCart(producto);
     }
   }
 }
