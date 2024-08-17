@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { ListaComponent } from './dominios/productos/paginas/lista/lista.component'
-import { AboutComponent } from './dominios/info/paginas/about/about.component';
+//import { ListaComponent } from './dominios/productos/paginas/lista/lista.component'
+//import { AboutComponent } from './dominios/info/paginas/about/about.component';
 import { NotFoundComponent } from './dominios/info/paginas/not-found/not-found.component';
 import { LayoutComponent } from './dominios/compartida/layout/layout.component';
 //import { ProductoComponent } from './dominios/productos/componentes/producto/producto.component';
-import { ProductoDetalleComponent } from './dominios/productos/componentes/producto-detalle/producto-detalle.component';
+//import { ProductoDetalleComponent } from './dominios/productos/componentes/producto-detalle/producto-detalle.component';
 export const routes: Routes = [
     {
         path: '',
@@ -12,31 +12,17 @@ export const routes: Routes = [
         children: [
             {
                 path: '',
-                component: ListaComponent
+                loadComponent:  () => import('./dominios/productos/paginas/lista/lista.component')
             },
             {
                 path: 'about',
-                component: AboutComponent
+                loadComponent: () => import('./dominios/info/paginas/about/about.component')
             },
             {
                 path: 'product/:id',
-                component: ProductoDetalleComponent
+                loadComponent: () => import ('./dominios/productos/componentes/producto-detalle/producto-detalle.component')
             },
-        ]
-        /*            {
-                path: '',
-                loadComponent: () => import('./domains/products/pages/list/list.component')
-            },
-            {
-                path: 'about',
-                loadComponent: () => import('./domains/info/pages/about/about.component')
-            },
-            {
-                path: 'product/:id',
-                loadComponent: () => import('./domains/products/pages/product-detail/product-detail.component')
-            }
-        ]
-*/ 
+        ] 
     },
 
     {

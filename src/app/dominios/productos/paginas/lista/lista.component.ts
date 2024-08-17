@@ -17,13 +17,13 @@ import { RouterLinkWithHref } from '@angular/router';
   templateUrl: './lista.component.html',
   styleUrls: ['./lista.component.css']
 })
-export class ListaComponent {
+export default class ListaComponent {
   productos = signal<Producto[]>([]);
   categorias = signal<Categoria[]>([]);
   private cartService = inject(CartServiceService);
   private productoService = inject(ProductoService);
   private categoriaService = inject(CategoriaService);
-  @Input() categoria_id?: string;
+  @Input() categoria_id?: string;//ver aca 
 
 
   ngOnInit() {

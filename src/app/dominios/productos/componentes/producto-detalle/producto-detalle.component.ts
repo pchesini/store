@@ -10,7 +10,7 @@ import { CartServiceService } from '../../../service/cart-service.service';
   templateUrl: './producto-detalle.component.html',
   styleUrls: ['./producto-detalle.component.css']
 })
-export class ProductoDetalleComponent {
+export default class ProductoDetalleComponent {
   @Input() id?: string;
   producto = signal<Producto | null>(null);
   cover = signal('');
@@ -22,6 +22,7 @@ export class ProductoDetalleComponent {
       this.productoService.getOne(this.id)
       .subscribe({
         next: (producto) => {
+          //console.log(producto)
           this.producto.set(producto);
           if (producto.images.length > 0) {
             this.cover.set(producto.images[0])
