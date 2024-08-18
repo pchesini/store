@@ -17,27 +17,3 @@
             (addToCart)="addToCart($event)" />
     </div>
 </div>
-<!-- 
-<div class="flex space-x-4  mt-5">
-    <div class="w-56">
-        <ul>
-            <li>
-                <a routerLink="/">All</a>
-            </li>
-            @for (categoria of categorias(); track category) {
-  <li>
-                <a routerLink="/" [queryParams]="{categoria_id: categoria.id}">{{ category.name }}</a>
-            </li>
-}
-        </ul>
-    </div>
-    <div class="grid grid-cols-4 gap-8 w-full">
-        @for (producto of productos(); track producto) {
-   <app-product
-           
-            [producto]="producto"
-            (addToCart)="addToCart($event)" />
-}
-    </div>
-    
-</div> -->
