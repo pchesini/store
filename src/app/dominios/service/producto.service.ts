@@ -7,9 +7,10 @@ import { Producto } from '../modelos/Producto';
 })
 export class ProductoService {
 
-  private http = inject(HttpClient);
+  //private http = inject(HttpClient);
 
-  constructor() { }
+  
+  constructor(private http: HttpClient) { }
 
   getProductos(categoria_id?: string){
     const url = new URL(`https://api.escuelajs.co/api/v1/products`);
