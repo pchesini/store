@@ -1,7 +1,19 @@
-    <div class="grid grid-cols-4 gap-8 mt-5">
+<div class="flex mt-5">
+    <div class="w-56 mr-6"> <!-- Añadí margen derecho (mr-8) al contenedor de categorías -->
+        <ul>
+            <li>
+                <a routerLink="/">All</a>
+            </li>
+            <li *ngFor="let categoria of categorias()">
+                <a routerLink="/" [queryParams]="{categoria_id: categoria.id}">{{ categoria.name }}</a>  
+               <!---->
+            </li>
+        </ul>
+    </div>
+    <div class="grid grid-cols-4 gap-8 w-full">
         <app-producto
             *ngFor="let producto of productos()"
             [producto]="producto"
             (addToCart)="addToCart($event)" />
     </div>
-
+</div>

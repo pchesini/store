@@ -9,7 +9,7 @@ import { ContadorComponent } from "../../../compartida/componente/contador/conta
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css']
 })
-export class AboutComponent {
+export  class AboutComponent {
   duration = signal(1000);
   message = signal('Hola');
 
