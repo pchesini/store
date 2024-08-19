@@ -6,9 +6,9 @@ import { Categoria } from '../modelos/categoria';
   providedIn: 'root'
 })
 export class CategoriaService {
-  private http = inject(HttpClient);
+  //private http = inject(HttpClient);
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getAll() {
     return this.http.get<Categoria[]>(`https://api.escuelajs.co/api/v1/categories`);
